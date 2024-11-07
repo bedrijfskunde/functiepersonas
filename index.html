@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docent/Onderzoeker Persona's</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+    <div id="personas" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+    <script>
+        const personas = [
+            {
+                "category": "Docent/Onderzoeker A | 11",
+                "name": "Bas, Praktijkgerichte Onderwijzer",
+                "background": "Bas is een enthousiaste docent met ervaring in het begeleiden van studenten in praktijkgerichte leeromgevingen. Hij bereidt verschillende onderwijsonderdelen voor en stemt deze af op een divers publiek.",
+                "characteristics": "Bas heeft een sterk didactisch-pedagogische aanpak en weet studenten te motiveren door interactieve en op maat gemaakte leersituaties te creëren. Hij richt zich op onderwijsverbetering en studentbegeleiding, vooral tijdens afstudeertrajecten.",
+                "image": "images/bas.webp"
+            },
+            {
+                "category": "Docent/Onderzoeker A | 11",
+                "name": "Aisha, Ontwikkelaar van Lesmateriaal",
+                "background": "Aisha ontwikkelt toets- en beoordelingsmethoden die een actieve leeromgeving ondersteunen. Ze maakt gebruik van input uit extern onderzoek en werkt nauw samen met andere docenten om onderwijsprocessen te verbeteren.",
+                "characteristics": "Haar focus ligt op het ontwerpen van betekenisvolle evaluaties die aansluiten op de leerdoelen. Ze houdt rekening met variatie in doelgroepen en past de didactiek hierop aan.",
+                "image": "images/aisha.webp"
+            },
+            {
+                "category": "Docent/Onderzoeker A | 11",
+                "name": "Pieter, Innovatieve Coach",
+                "background": "Pieter begeleidt studenten bij hun afstudeeronderzoek en werkt actief samen met het werkveld om actuele thema's in zijn lessen te verwerken.",
+                "characteristics": "Hij richt zich op het begeleiden van studenten door hen de kans te geven zich persoonlijk en professioneel te ontwikkelen. Hij ondersteunt bij de ontwikkeling van studievaardigheden en adviseert studenten over hun studie- en loopbaantraject.",
+                "image": "images/pieter.webp"
+            },
+            {
+                "category": "Docent/Onderzoeker B | 12",
+                "name": "Sanne, Curriculumontwikkelaar",
+                "background": "Sanne is verantwoordelijk voor onderwijsontwikkeling voor grote delen van het curriculum. Ze werkt samen met andere opleidingen om coherente, vernieuwende onderwijsonderdelen te creëren.",
+                "characteristics": "Haar aanpak is gericht op het combineren van theoretische en praktische kennis, waarbij ze innovatieve lesmethoden implementeert die inspelen op veranderende behoeften van studenten en werkveld.",
+                "image": "images/sanne.webp"
+            },
+            {
+                "category": "Docent/Onderzoeker B | 12",
+                "name": "Farid, Onderzoeksgedreven Docent",
+                "background": "Farid werkt samen met het werkveld om onderzoeksprojecten te ontwikkelen. Hij formuleert onderzoeksvragen en draagt bij aan de ontwikkeling van onderzoekslijnen die de basis vormen voor zijn onderwijs.",
+                "characteristics": "Hij begeleidt studenten bij onderzoeksprojecten en zorgt ervoor dat onderzoeksresultaten worden vertaald naar het onderwijs en het werkveld. Hij publiceert onderzoeksresultaten en is betrokken bij innovatieve samenwerkingsprojecten.",
+                "image": "images/farid.webp"
+            },
+            {
+                "category": "Docent/Onderzoeker B | 12",
+                "name": "Els, Netwerkgerichte Samenwerker",
+                "background": "Els heeft een uitgebreid netwerk van samenwerkingspartners en opdrachtgevers. Ze benut dit netwerk om innovatieve onderwijs- en onderzoekstrajecten op te zetten.",
+                "characteristics": "Els richt zich op externe samenwerking voor onderwijs- en onderzoeksontwikkeling en zorgt ervoor dat deze samenwerkingen bijdragen aan de profilering van de hogeschool en het curriculum verbeteren.",
+                "image": "images/els.webp"
+            },
+            {
+                "category": "Docent/Onderzoeker C | 13",
+                "name": "Tom, Strategisch Innovator",
+                "background": "Tom is verantwoordelijk voor het ontwerp, de ontwikkeling en innovatie van gehele opleidingen. Hij zorgt voor de implementatie en duurzame borging van deze opleidingen, met aandacht voor de financiële positie en externe profilering.",
+                "characteristics": "Hij werkt op strategisch niveau samen met het werkveld en externe partijen om het onderwijsaanbod te vernieuwen en te verbeteren, met oog voor lange termijn impact en institutioneel imago.",
+                "image": "images/tom.webp"
+            },
+            {
+                "category": "Docent/Onderzoeker C | 13",
+                "name": "Monique, Onderzoeksleider en Kennisverbreider",
+                "background": "Monique leidt grootschalige onderzoeksprogramma's die zowel complex als innovatief zijn. Ze verbindt onderzoeksresultaten met het onderwijs en het werkveld, waarbij kennisvalorisatie centraal staat.",
+                "characteristics": "Ze heeft een visie op de rol van onderzoek binnen de hogeschool en weet financiering te verkrijgen voor doorlopende innovatieve onderzoeksprojecten. Monique begeleidt niet alleen studenten maar ook medewerkers in hun onderzoeksactiviteiten.",
+                "image": "images/monique.webp"
+            },
+            {
+                "category": "Docent/Onderzoeker C | 13",
+                "name": "Ravi, Verbinder tussen Onderwijs en Werkveld",
+                "background": "Ravi ontwikkelt samen met externe partijen samenwerkingsprojecten die bepalend zijn voor de profilering van de hogeschool. Hij richt zich op complexe samenwerkingsopdrachten die bijdragen aan innovatie in zowel het onderwijs als het werkveld.",
+                "characteristics": "Ravi werkt op institutioneel niveau aan het vergroten van het netwerk van de hogeschool, gericht op strategische samenwerking en de profilering van de instelling. Hij begeleidt ook medewerkers bij het opzetten en uitvoeren van dergelijke samenwerkingsprojecten.",
+                "image": "images/ravi.webp"
+            }
+        ];
+
+        const container = document.getElementById('personas');
+
+        personas.forEach(persona => {
+            const card = document.createElement('div');
+            card.className = `bg-white p-6 rounded-lg shadow-md ${
+                persona.category.includes('A') ? 'border-blue-500' :
+                persona.category.includes('B') ? 'border-green-500' :
+                'border-red-500'
+            } border-l-4`;
+
+            card.innerHTML = `
+                <img src="${persona.image}" alt="${persona.name}" class="w-full h-84 object-cover rounded-md mb-4">
+                <h3 class="text-xl font-bold mb-2">${persona.name}</h3>
+                <p class="text-sm font-semibold text-gray-600 mb-2">${persona.category}</p>
+                <p class="text-gray-700 mb-4"><strong>Achtergrond:</strong> ${persona.background}</p>
+                <p class="text-gray-700"><strong>Kenmerken:</strong> ${persona.characteristics}</p>
+            `;
+
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>
